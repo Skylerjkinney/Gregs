@@ -51,16 +51,9 @@ VALUES
 
 SELECT * FROM cars WHERE id = LAST_INSERT_ID();
 
-CREATE TABLE houses{
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  design VARCHAR(20),
-  description VARCHAR(500),
-  color VARCHAR(10),
-  bathrooms INT,
-  bedrooms INT,
-  imgUrl VARCHAR (500) NOT NULL,
-  price BIGINT NOT NULL,
-};
+CREATE TABLE houses (
+    id INT AUTO_INCREMENT PRIMARY KEY, design VARCHAR(20), description VARCHAR(500), color VARCHAR(10), bathrooms INT, bedrooms INT, imgUrl VARCHAR(500) NOT NULL, price BIGINT NOT NULL
+);
 
 INSERT INTO
     houses (
