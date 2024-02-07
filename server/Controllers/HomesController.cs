@@ -17,7 +17,11 @@ public class HomesController : ControllerBase
         try
         {
             List<Home> homes = homesService.GetAllHomes();
-            return Ok(homes)
+            return Ok(homes);
+        }
+        catch (Exception error)
+        {
+            return BadRequest(error.Message);
         }
     }
 }

@@ -17,10 +17,22 @@ public class HomesRepository(IDbConnection db)
 
         SELECT
         *
-        FROM cars
+        FROM homes
         WHERE id = LAST_INSERT_ID();
         ";
         Home home = db.Query<Home>(sql, homeData).FirstOrDefault();
         return home;
+    }
+
+    internal List<Home> GetAllHomes()
+    {
+        string sql = @"
+        SELECT
+        *
+        FROM homes;
+        ";
+
+        List<Home> homes = db.Query<Home>(sql).ToList();
+        return homes;
     }
 }
