@@ -11,13 +11,26 @@ public class HomesController : ControllerBase
     }
 
     [HttpGet]
-
     public ActionResult<List<Home>> GetAllHomes()
     {
         try
         {
             List<Home> homes = homesService.GetAllHomes();
             return Ok(homes);
+        }
+        catch (Exception error)
+        {
+            return BadRequest(error.Message);
+        }
+    }
+
+    [HttpPost]
+    public ActionResult<Home> CreateHome([FromBody] Home homeData)
+    {
+        try
+        {
+            Home home = homesService.CreateHome(homeData);
+            return Ok(home);
         }
         catch (Exception error)
         {
